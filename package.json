@@ -1,0 +1,30 @@
+{
+  "name": "openemp-api-institution",
+  "version": "1.0.0",
+  "description": "OpenEmp institution service",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/openemp/openemp-api-institution.git"
+  },
+  "keywords": [
+    "Nodejs",
+    "OpenEmp"
+  ],
+  "author": "Wahéb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/openemp/openemp-api-institution/issues"
+  },
+  "homepage": "https://github.com/openemp/openemp-api-institution#readme",
+  "dependencies": {
+    "cjs-loader": "^0.1.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.17",
+    "nodemon": "^2.0.6",
+    "validator": "^13.5.1"
+  }
+}
