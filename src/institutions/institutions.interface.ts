@@ -1,6 +1,6 @@
-export interface institutionsModel {
+export interface InstitutionsModel {
     id?: number;
-    uuid?: string;
+    uuid: string;
     createDate: Date;
     name: string;
     Description: string;
