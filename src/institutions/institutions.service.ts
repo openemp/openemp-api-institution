@@ -1,21 +1,34 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { InstitutionsModel } from './institutions.interface';
+import { Injectable} from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Institution } from './institution.entity';
+import { CreateInstitutionDto } from './institutions.dto';
 
 @Injectable()
 export class InstitutionsService {
-    private institutions: Array<InstitutionsModel> = [];
 
-    public findAll(): Array<InstitutionsModel> {
-        return this.institutions;
-      }
+  @InjectRepository(Institution)
+  private readonly repository: Repository<Institution>;
 
-      public findOne(id: number): InstitutionsModel {
-        const post: InstitutionsModel = this.institutions.find(post => post.id === id);
-      
-        if (!post) {
-          throw new NotFoundException('Inst not found.');
-        }
-      
-        return post;
-      }
-}
+  public getAllUsers(): Promise<Institution[]> {
+    return this.repository.find();
+  }
+
+  public getUser(id: number): Promise<Institution> {
+    return this.repository.findOne({
+      where: [
+        {id: id}
+      ]
+    });
+  }
+
+  public createUser(body: CreateInstitutionDto): Promise<Institution> {
+    const user: Institution = new Institution();
+
+    user.name = body.name;
+    user.email = body.email;
+
+    return this.repository.save(user);
+  }
+
+  }
