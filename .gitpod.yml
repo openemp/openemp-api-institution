@@ -1,0 +1,6 @@
+
+tasks:
+  - init: |
+      docker run --name postgres -d -p 5432:5432 -e POSTGRES_PASSWORD=password postgres
+      docker exec postgres psql -d postgres -U postgres -c 'CREATE DATABASE inst_api;'
+  - command: yarn start:dev
