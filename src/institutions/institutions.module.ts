@@ -10,4 +10,4 @@ import { Institution } from './institution.entity';
   providers: [InstitutionsService],
   exports: []
 })
-export class InstitutionsModule {}
+export class InstitutionsModule { }

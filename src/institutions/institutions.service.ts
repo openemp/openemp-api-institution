@@ -1,4 +1,4 @@
-import { Injectable} from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Institution } from './institution.entity';
@@ -10,19 +10,19 @@ export class InstitutionsService {
   @InjectRepository(Institution)
   private readonly repository: Repository<Institution>;
 
-  public getAllUsers(): Promise<Institution[]> {
+  public getAllInsts(): Promise<Institution[]> {
     return this.repository.find();
   }
 
-  public getUser(id: number): Promise<Institution> {
+  public getInst(id: number): Promise<Institution> {
     return this.repository.findOne({
       where: [
-        {id: id}
+        { id: id }
       ]
     });
   }
 
-  public createUser(body: CreateInstitutionDto): Promise<Institution> {
+  public createInst(body: CreateInstitutionDto): Promise<Institution> {
     const user: Institution = new Institution();
 
     user.name = body.name;
@@ -31,4 +31,4 @@ export class InstitutionsService {
     return this.repository.save(user);
   }
 
-  }
+}

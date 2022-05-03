@@ -1,0 +1,7 @@
+POST http://localhost:8081/api/v1/users/authenticate
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "P@$$w0rd"
+}

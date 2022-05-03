@@ -2,7 +2,7 @@ import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateCol
 
 @Entity()
 export class Institution {
-  
+
   @PrimaryGeneratedColumn()
   public id!: number;
 

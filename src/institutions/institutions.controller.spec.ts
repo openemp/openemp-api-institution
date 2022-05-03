@@ -10,8 +10,8 @@ describe('InstitutionsController', () => {
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       imports: [TypeOrmModule.forFeature([Institution])],
-      providers: [InstitutionsService, ],
-      controllers: [InstitutionsController, Institution, ],
+      providers: [InstitutionsService,],
+      controllers: [InstitutionsController, Institution,],
     }).compile();
 
     controller = module.get<InstitutionsController>(InstitutionsController);
